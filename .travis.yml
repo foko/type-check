@@ -4,5 +4,14 @@ node_js:
 - '6'
 - '8'
 script:
- - npm test
- - node_modules/.bin/codecov
+- npm test
+- node_modules/.bin/codecov
+deploy:
+  provider: npm
+  email: karim@alibhai.co
+  api_key:
+    secure: Z2qgGGOd5sQu0D46dVEG0qwMRVqrJZj4kpy5JjAaH3i+JHwFVrYrFXVcc8COPqN/OTmFrKf3TDJHP/3xQCgNUtge3pmeYrbpY28XNsoKuYwI1/MgT8R1bWCIms4oQBL1YnGDofH8eKog4AynoBYpf0BlTcFg7vocrAi4cMi/r69whjvj5KIkHUgLH6DfcPWl3LQRtT2T2pzlkD8bN1R1C6ff3WXUhaJkNSkciuZeW4H0MldpoVykrfSIR4SzkEA8wxSVQICY5EwhJabBPgp5lVynUNbI8ekNsYg0jj6WzLy9h9CjXpR0Xj5nbDgNIYBwaHu5l/9tozpAFsNVvnHvQ4ggyca+qRa65nxDDqkxpeFR2Y4/BrgAH3ccA10njGcTYX/oKDG1DdOgD+8S3MBvIinOUm9oEZ3DhayZ/grMtRChygzCJBnVUMVLLLfzPDgRZY05raACBxIbUnr9BBYY5NgBHc0+MRv8FI7LMmMOc3WFYBEKTwTIhNokU/8pMxfLAxCbSxk19gS5hHOTm+3afdU/8rSdq0jnTgL7aF2H+KFt8nljeys8rr7gxrIek4dPEaxJRp/BQ3iyRnfExR5vmm0fNhU+7Od2d0xRr5mtsJw+S8zSdB6VIW1p5LlhBhsf3WH6+xlz9H4zScmjWDF463Z3ZbZo9yIsXQKUyHMnnXU=
+  on:
+    tags: true
+    repo: karimsa/type-check
+    branch: master
