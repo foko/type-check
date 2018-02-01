@@ -13,6 +13,10 @@ function typeOf (value) {
     return 'array'
   }
 
+  if (typeof value === 'object' && value instanceof RegExp) {
+    return 'regexp'
+  }
+
   return typeof value
 }
 
@@ -21,7 +25,20 @@ function typeOf (value) {
  * on typeOf() value.
  */
 function typeAssert (type, value) {
+  const isOptional = type[type.length - 1] === '?'
+
+  // trim the '?'
+  if (isOptional) {
+    type = type.substr(0, type.length - 1)
+  }
+
   if (typeOf(value) !== type) {
+    // if its optional, then don't fail for undefined or null
+    if (isOptional && (value === undefined || value === null)) {
+      return
+    }
+
+    // otherwise throw error
     throw new TypeError(`Unexpected value of type: ${type}`)
   }
 }
@@ -39,6 +56,7 @@ const PRIMITIVES = {
   // special typeof checks
   null: 1,
   array: 1,
+  regexp: 1,
 }
 
 // checks that cannot be completed through usual typeOf check
@@ -49,7 +67,11 @@ const TYPES = {
 }
 
 function typeCheck (type, value) {
-  typeAssert('string', type)
+  if (typeof type === 'string') {
+    type = [type]
+  }
+
+  typeAssert('array', type)
 
   /**
    * Primitives are easy. Just use typeof.
