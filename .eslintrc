@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "valid-typeof": "off",
+    "comma-dangle": ["error", {
+      "arrays": "only-multiline",
+      "objects": "only-multiline",
+      "exports": "only-multiline",
+      "imports": "never",
+      "functions": "never"
+    }]
+  }
+}

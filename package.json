@@ -1,0 +1,49 @@
+{
+  "name": "@karimsa/type-check",
+  "version": "0.0.0",
+  "description": "Assert-style non-intrusive type checking.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "nyc ava -v",
+    "lint": "standardx"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.js"
+    ],
+    "source": [
+      "index.js"
+    ],
+    "concurrency": 4,
+    "failFast": true,
+    "failWithoutAssertions": true,
+    "compileEnhancements": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karimsa/type-check.git"
+  },
+  "keywords": [
+    "type",
+    "check",
+    "assert"
+  ],
+  "author": "Karim Alibhai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karimsa/type-check/issues"
+  },
+  "homepage": "https://github.com/karimsa/type-check#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "nyc": "^11.4.1",
+    "standardx": "^1.0.3"
+  },
+  "dependencies": {
+    "codecov": "^3.0.0"
+  }
+}
