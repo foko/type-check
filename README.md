@@ -1,6 +1,6 @@
 # type-check [![Build Status](https://travis-ci.org/karimsa/type-check.svg?branch=master)](https://travis-ci.org/karimsa/type-check) [![codecov](https://codecov.io/gh/karimsa/type-check/branch/master/graph/badge.svg)](https://codecov.io/gh/karimsa/type-check) [![Greenkeeper badge](https://badges.greenkeeper.io/karimsa/type-check.svg)](https://greenkeeper.io/)
 
-Assert-style intrusive type checks.
+Assert-style non-intrusive type checks.
 
 ## Usage
 
