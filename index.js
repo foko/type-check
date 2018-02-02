@@ -32,14 +32,16 @@ function typeAssert (type, value) {
     type = type.substr(0, type.length - 1)
   }
 
-  if (typeOf(value) !== type) {
+  const givenType = typeOf(value)
+
+  if (givenType !== type) {
     // if its optional, then don't fail for undefined or null
     if (isOptional && (value === undefined || value === null)) {
       return
     }
 
     // otherwise throw error
-    throw new TypeError(`Unexpected value of type: ${type}`)
+    throw new TypeError(`Unexpected value of type "${givenType}" (expected ${type}${isOptional ? '?' : ''})`)
   }
 }
 
