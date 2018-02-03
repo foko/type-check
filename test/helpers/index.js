@@ -44,10 +44,25 @@ export function validate (t, type, valid, testOptional = true) {
   for (const value of invalid) {
     const err = t.throws(() => typeCheck(type, value), TypeError)
 
-    t.regex(String(err).split('\n')[0], new RegExp(type), 'error message should contain expected type')
+    t.regex(String(err).split('\n')[0], (function () {
+      if (typeof type === 'string') {
+        return new RegExp(type)
+      }
+
+      return new RegExp(type.join('|'))
+    }()), 'error message should contain expected type')
   }
 
   if (testOptional) {
-    return validate(t, type + '?', valid.concat([ undefined, null ]), false)
+    return validate(
+      t,
+      (
+        typeof type === 'string'
+        ? type + '?'
+        : type.slice(0, type.length - 1).concat([ type[type.length - 1] + '?' ])
+      ),
+      valid.concat([ undefined, null ]),
+      false
+    )
   }
 }

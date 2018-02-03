@@ -57,7 +57,7 @@ function typeCheck (type, value) {
     type = [type]
   }
 
-  assert(Array.isArray ? Array.isArray(type) : type instanceof Array, 'type must be a valid array')
+  assert(type instanceof Array, 'type must be a valid array')
   typeAssertMany(type, value)
 }
 
