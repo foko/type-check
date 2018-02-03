@@ -4,7 +4,10 @@
  * @copyright 2018-present Karim Alibhai.
  */
 
+'use strict'
+
 const assert = require('assert')
+const debug = require('debug')('type-check')
 
 function createError (expected, given, isOptional) {
   return new TypeError(`Unexpected value of type "${given}" (expected ${expected}${isOptional ? '?' : ''})`)
@@ -23,6 +26,8 @@ function typeAssert (type, value) {
     type = type.substr(0, type.length - 1)
   }
 
+  debug('testing %o type for value %o', type, value)
+
   // types match, everyone is happy
   if (givenType === type) {
     return
@@ -38,6 +43,8 @@ function typeAssert (type, value) {
 }
 
 function typeAssertMany (types, value) {
+  debug('trying to match %o to any of %o', value, types)
+
   for (const type of types) {
     try {
       typeAssert(type, value)
@@ -45,7 +52,9 @@ function typeAssertMany (types, value) {
       // if didn't throw error, we have successfully
       // matched a type - exit right away
       return
-    } catch (_) {}
+    } catch (_) {
+      debug('failed to match type %o for value %o', type, value)
+    }
   }
 
   // if nothing matched, then die
