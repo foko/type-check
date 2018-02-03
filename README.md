@@ -26,30 +26,33 @@ add(1) // throws TypeError
 
 ## Available Types
 
- - undefined
- - object
- - boolean
- - number
- - string
- - symbol
- - function
- - null
- - array
- - regexp
-
-*If you would like to make any of these "optional" (i.e. any above value, or undefined - simply append "?" to the end)*
-
-### Required vs. Optional
+Type detection is handled by [type-detect](https://npmjs.org/type-detect) by the lovely team over at
+chaijs. If you would like to use your own type detection, you can swap it out by replacing the function
+at `typeCheck.typeOf`:
 
 ```javascript
-function add (a, b) {
-  typeCheck('number', a)
-  typeCheck('number?', b)
+const typeCheck = require('@karimsa/type-check')
 
-  return a + (b || 1)
+// this replaces the type-detect typeOf function with just a native
+// use of typeof (which is faster but less useful)
+typeCheck.typeOf = function (value) {
+  return typeof value
 }
+```
 
-add(1) // this does not error out anymore, now returns 2
+*If you would like to make types optional (i.e. the type, undefined, or null) - just append `?` to the end
+of the type name.*
+
+Example with optional types:
+
+```javascript
+// all valid
+typeCheck('number?', 2)
+typeCheck('number?', undefined)
+typeCheck('number?', null)
+
+// invalid
+typeCheck('number?', '2')
 ```
 
 ## License

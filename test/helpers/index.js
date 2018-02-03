@@ -34,7 +34,7 @@ function getInvalid (valid) {
   return invalid
 }
 
-export function validate (t, type, valid) {
+export function validate (t, type, valid, testOptional = true) {
   const invalid = getInvalid(valid)
 
   for (const value of valid) {
@@ -42,6 +42,12 @@ export function validate (t, type, valid) {
   }
 
   for (const value of invalid) {
-    t.throws(() => typeCheck(type, value), TypeError)
+    const err = t.throws(() => typeCheck(type, value), TypeError)
+
+    t.regex(String(err).split('\n')[0], new RegExp(type), 'error message should contain expected type')
+  }
+
+  if (testOptional) {
+    return validate(t, type + '?', valid.concat([ undefined, null ]), false)
   }
 }
