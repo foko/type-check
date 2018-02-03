@@ -66,6 +66,8 @@ function typeCheck (type, value) {
     type = [type]
   }
 
+  debug('typeCheck(%o, %o)', type, value)
+
   assert(type instanceof Array, 'type must be a valid array')
   typeAssertMany(type, value)
 }

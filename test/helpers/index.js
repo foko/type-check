@@ -4,6 +4,8 @@
  * @copyright 2018-present Karim Alibhai.
  */
 
+'use strict'
+
 const typeCheck = require('../../')
 
 const samples = [

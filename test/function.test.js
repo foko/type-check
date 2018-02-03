@@ -4,7 +4,11 @@ import { validate } from './helpers'
 function getValue (code) {
   try {
     /* eslint no-eval: off */
-    return [eval(code)]
+    return [eval(`
+      (function () {
+        return ${code}
+      }())
+    `)]
   } catch (e) {
     return []
   }
