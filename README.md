@@ -1,4 +1,4 @@
-# type-check [![Build Status](https://travis-ci.org/karimsa/type-check.svg?branch=master)](https://travis-ci.org/karimsa/type-check) [![codecov](https://codecov.io/gh/karimsa/type-check/branch/master/graph/badge.svg)](https://codecov.io/gh/karimsa/type-check) [![Greenkeeper badge](https://badges.greenkeeper.io/karimsa/type-check.svg)](https://greenkeeper.io/)
+# type-check [![Build Status](https://travis-ci.org/FoKo/type-check.svg?branch=master)](https://travis-ci.org/FoKo/type-check) [![codecov](https://codecov.io/gh/FoKo/type-check/branch/master/graph/badge.svg)](https://codecov.io/gh/FoKo/type-check) [![Greenkeeper badge](https://badges.greenkeeper.io/FoKo/type-check.svg)](https://greenkeeper.io/)
 
 Assert-style non-intrusive type checks.
 
@@ -58,3 +58,5 @@ typeCheck('number?', '2')
 ## License
 
 Licensed under MIT license.
+
+Copyright &copy; 2018-present Foko Inc. All rights reserved.

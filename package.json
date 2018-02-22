@@ -1,5 +1,5 @@
 {
-  "name": "@karimsa/type-check",
+  "name": "@foko/type-check",
   "version": "0.0.0",
   "description": "Assert-style non-intrusive type checking.",
   "main": "index.js",
@@ -47,5 +47,8 @@
   "dependencies": {
     "debug": "^3.1.0",
     "type-detect": "^4.0.8"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
