@@ -13,4 +13,5 @@ deploy:
     secure: hUrLn6/wK91ppavI9dYctq4ItDnALfpZcp8wBM2L/OkODP6K1HGK4/si8yxizexulXSykVuvME8+jFkcFWU/gG9pbAO5JsXf6GlMUv2nPBRqgUKyvAPA8hYop2P3Ra9IUamUI7gJKRKB8G7jUY/+lWVRDXf97y9eTZDGI48I6/9JtAPwQtBrg1eibk1KSyARmijaG57OdKIGbuBbdqfijFPVDHtRd3/n9KdsZjuwm4pTIkn/xDBkDcRNbVgGom+4+OBULySszbv+n4qevxZsQ6dfcyGogQyE0KgMZYFQl90zOb7Ece/tWOul6XCPmQ1e5GOF3r/5lQKULFv+seHuycWm87IzSPlslKxTfY5xWLwnWvKNvJBf9/zePE76YidUzujnAstdkfR6LjwSnJnHfkzKWyEbzYJzrOfsdkgRbDvTTEMDWgmiibPpVFUXbR0pcUapJIUJTJtc5Z+Z/e7x6RmoDNpHyEkmiPDS/OK9pel0S5jt9oui38Ar5Eb3mF4EwTp82lcU/ex4+ra7kzwgbk42+9Z1USqkk57RW9Bqimf/P6uirXcmRVnJyEzIc7DgNLxXI+TOxV2QZgDjFPigA4aA1ZSVUPSLp8PenILJ/4IFrrS8IN7p5I2d6HAQNLD1AR+lQwfAiiTEON1FqL7GcpV1/sa9fmZlicKTmbdsHgg=
   on:
     tags: true
+    node: 6
     repo: FoKo/type-check
