@@ -6,7 +6,6 @@
 
 'use strict'
 
-const assert = require('assert')
 const debug = require('debug')('type-check')
 
 function createError (expected, given, isOptional) {
@@ -74,7 +73,10 @@ function typeCheck (type, value) {
 
   debug('typeCheck(%o, %o)', type, value)
 
-  assert(type instanceof Array, 'type must be a valid array')
+  if (!(type instanceof Array)) {
+    throw new Error('Must provide a string or an array for "type"')
+  }
+
   typeAssertMany(type, value)
 }
 
