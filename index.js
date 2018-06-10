@@ -10,7 +10,9 @@ const assert = require('assert')
 const debug = require('debug')('type-check')
 
 function createError (expected, given, isOptional) {
-  return new TypeError(`Unexpected value of type "${given}" (expected ${expected}${isOptional ? '?' : ''})`)
+  const err = new TypeError(`Unexpected value of type "${given}" (expected ${expected}${isOptional ? '?' : ''})`)
+  Error.captureStackTrace(err, createError)
+  return err
 }
 
 /**
@@ -39,7 +41,9 @@ function typeAssert (type, value) {
   }
 
   // otherwise throw error
-  throw createError(type, givenType, isOptional)
+  const err = createError(type, givenType, isOptional)
+  Error.captureStackTrace(err, typeAssert)
+  throw err
 }
 
 function typeAssertMany (types, value) {
@@ -58,7 +62,9 @@ function typeAssertMany (types, value) {
   }
 
   // if nothing matched, then die
-  throw createError(`any of: ${types.join(', ')}`, module.exports.typeOf(value))
+  const err = createError(`any of: ${types.join(', ')}`, module.exports.typeOf(value))
+  Error.captureStackTrace(err, typeAssert)
+  throw err
 }
 
 function typeCheck (type, value) {
