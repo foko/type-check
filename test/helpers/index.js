@@ -60,8 +60,8 @@ export function validate (t, type, valid, testOptional = true) {
       t,
       (
         typeof type === 'string'
-        ? type + '?'
-        : type.slice(0, type.length - 1).concat([ type[type.length - 1] + '?' ])
+          ? type + '?'
+          : type.slice(0, type.length - 1).concat([ type[type.length - 1] + '?' ])
       ),
       valid.concat([ undefined, null ]),
       false
