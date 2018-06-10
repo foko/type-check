@@ -45,8 +45,7 @@
     "standardx": "^1.0.3"
   },
   "dependencies": {
-    "debug": "^3.1.0",
-    "type-detect": "^4.0.8"
+    "debug": "^3.1.0"
   },
   "publishConfig": {
     "access": "public"

@@ -73,7 +73,7 @@ function typeCheck (type, value) {
 }
 
 module.exports = typeCheck
-module.exports.typeOf = require('type-detect')
+module.exports.typeOf = value => typeof value
 
 // es2015 support
 module.exports.typeCheck = typeCheck
